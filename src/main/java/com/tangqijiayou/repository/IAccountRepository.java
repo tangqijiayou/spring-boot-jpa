@@ -1,6 +1,9 @@
 package com.tangqijiayou.repository;
 
 import com.tangqijiayou.model.Account;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -32,5 +35,22 @@ public interface IAccountRepository extends JpaRepository<Account, Long>{
 	 * @return
 	 */
 	public void delete(final Account account);
+
+	/**
+	 * 无条件分页查询用户
+	 *
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Account> findAll(Pageable pageable);
+
+	/**
+	 * 动态条件分页查询用户
+	 *
+	 * @param spec
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Account> findAll(Specification<Account> spec, Pageable pageable);
 	
 }

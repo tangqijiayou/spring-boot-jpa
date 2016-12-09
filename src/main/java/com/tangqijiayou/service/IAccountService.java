@@ -2,6 +2,9 @@ package com.tangqijiayou.service;
 
 
 import com.tangqijiayou.model.Account;
+import com.tangqijiayou.vo.AccountVo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * @author merry
@@ -32,4 +35,19 @@ public interface IAccountService{
 	 * @return
 	 */
 	public void delete(final Account account);
+
+	/**
+	 * 无条件分页查询用户
+	 *
+	 * @param pageable
+	 * @return
+	 */
+	public Page<Account> findAll(Pageable pageable);
+
+	/**
+	 * 动态条件分页查询用户
+	 *
+	 * @return
+	 */
+	public Page<Account> findAll(Pageable pageable, AccountVo accountVo);
 }
